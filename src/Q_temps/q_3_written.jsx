@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './q_3_written.css';
 
-function WrittenQuestion() {
+function WrittenQuestion({qa_JSON}) {
 
   const question = "This is a written question";
     
@@ -12,7 +12,9 @@ function WrittenQuestion() {
   };
 
   const submitAnswer = () => {
-    console.log({answer: writtenAnswer})
+    const updatedJSON = {...qa_JSON};
+    updatedJSON[question] = writtenAnswer;
+    console.log(updatedJSON);
   };
 
   return (

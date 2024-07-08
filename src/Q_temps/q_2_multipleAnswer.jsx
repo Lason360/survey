@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
 import './q_1_mcq.css';
 
-function Q_mcq() {
+function Q_multi({qa_JSON}) {
   const question = {
     text: "What is the content on a multiple answered question?",
     options: ["answer 1", "answer 2", "answer 3", "answer 4"],
   };
 
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const initialAnswerJson = {};
+  question.options.forEach(option => {
+    initialAnswerJson[option] = false;
+  });
+
+  const [answerJson, setAnswerJson] = useState(initialAnswerJson);
 
   const handleOptionChange = (e) => {
     const option = e.target.value;
-    setSelectedOptions((prevSelectedOptions) => {
-      if (prevSelectedOptions.includes(option)) {
-        return prevSelectedOptions.filter((item) => item !== option);
-      } else {
-        return [...prevSelectedOptions, option];
-      }
-    });
+    setAnswerJson(prevAnswerJson => ({
+      ...prevAnswerJson,
+      [option]: !prevAnswerJson[option]
+    }))
   };
 
   const submitAnswer = () => {
-    // Handle answer submission logic here
-    console.log("Selected options:", selectedOptions);
+    const selectedOptions = Object.values(answerJson).filter(val => val).length;
+    if (selectedOptions === 0) {
+      alert('Select at least one answer');
+      return;
+    }
+
+    const updatedJson = { ...qa_JSON };
+    updatedJson[question.text] = answerJson;
+
+    console.log("Updated JSON:", JSON.stringify(updatedJson));
+    // Implement firebase logic here
   };
 
   return (
@@ -35,7 +46,7 @@ function Q_mcq() {
               type="checkbox"
               id={option}
               value={option}
-              checked={selectedOptions.includes(option)}
+              checked={answerJson[option]}
               onChange={handleOptionChange}
             />
             <label htmlFor={option}>{option}</label>
@@ -47,4 +58,4 @@ function Q_mcq() {
   );
 }
 
-export default Q_mcq;
+export default Q_multi;

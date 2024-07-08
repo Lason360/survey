@@ -38,7 +38,7 @@ function Questionnaire() {
   const submitAnswers = () => {
     const selectedOptions = questions.map((q) => ({ id: q.id, selectedOption: q.selectedOption }));
     console.log("Submitted answers:", selectedOptions);
-    // Implement your submission logic here, e.g., send data to server
+    // implement firebase
   };
 
   return (

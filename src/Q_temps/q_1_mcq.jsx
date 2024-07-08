@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './q_1_mcq.css';
 
-function Q_mcq() {
+function Q_mcq({qa_JSON}) {
   const question = {
     text: "What is the content on a MCQ question?",
     options: ["answer 1", "answer 2", "answer 3", "answer 4"],
   };
 
-  const [selectedOption, setSelectedOption] = useState([]);
+  const [selectedOption, setSelectedOption] = useState('');
   const [result, setResult] = useState('');
 
   const handleOptionChange = (e) => {
@@ -15,6 +15,19 @@ function Q_mcq() {
   };
 
   const submitAnswer = () => {
+  
+    if (!selectedOption) {
+
+      alert('Select one answer');
+      return;
+
+    }
+  
+    const updatedJson = { ...qa_JSON };
+    updatedJson[question.text] = selectedOption;
+  
+    console.log("Updated JSON:", JSON.stringify(updatedJson));
+    // Implement firebase logic here
   };
 
   return (
