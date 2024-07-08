@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './q_4.css';
 
 function Questionnaire() {
-  const questions = [
+  const initialQuestions = [
     {
       id: 1,
       text: "The user interface is intuitive and easy to navigate.",
@@ -23,7 +23,7 @@ function Questionnaire() {
     },
   ];
 
-  const [answers, setAnswers] = useState([]);
+  const [questions, setQuestions] = useState(initialQuestions);
 
   const handleOptionChange = (questionId, option) => {
     const updatedQuestions = questions.map((q) => {
@@ -32,11 +32,12 @@ function Questionnaire() {
       }
       return q;
     });
-    setAnswers(updatedQuestions);
+    setQuestions(updatedQuestions);
   };
 
   const submitAnswers = () => {
-    console.log("Submitted answers:", answers);
+    const selectedOptions = questions.map((q) => ({ id: q.id, selectedOption: q.selectedOption }));
+    console.log("Submitted answers:", selectedOptions);
     // Implement your submission logic here, e.g., send data to server
   };
 
@@ -50,9 +51,9 @@ function Questionnaire() {
             {question.options.map((option, index) => (
               <div key={index} className="option">
                 <input
-                  type="checkbox"
+                  type="radio"
                   id={`${question.id}-${index}`}
-                  name={`${question.id}`}
+                  name={`question-${question.id}`}
                   value={option}
                   checked={question.selectedOption === option}
                   onChange={() => handleOptionChange(question.id, option)}
