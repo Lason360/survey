@@ -1,2 +1,8 @@
 # survey_framework
-This is a repo for creating your own custom survey
+# Completed
+Question frontend is built only for MCQs, Multiple choice selecteble MCQs, Writing questions, Likert scale questions
+Find question components in src>Q_temps
+
+# Further development
+Implementing an Instance of a answering questions
+Interfacing the frontend with firebase tabular dataframe
