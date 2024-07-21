@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './q_1_mcq.css';
+import './Q_temps_css/q_1_mcq.css';
 
 function Q_mcq({qa_JSON}) {
   const question = {
@@ -8,7 +8,6 @@ function Q_mcq({qa_JSON}) {
   };
 
   const [selectedOption, setSelectedOption] = useState('');
-  const [result, setResult] = useState('');
 
   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
@@ -49,7 +48,6 @@ function Q_mcq({qa_JSON}) {
         ))}
       </div>
       <button onClick={submitAnswer}>Next Question</button>
-      <p id="result">{result}</p>
     </div>
   );
 }

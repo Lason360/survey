@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Q_3 from './Q_temps/q_3_written';
+import Q_3 from './Q_temps/q_4_lvlSurvey';
 
 const App = () => {
 

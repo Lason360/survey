@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './q_3_written.css';
+import './Q_temps_css/q_3_written.css';
 
 function WrittenQuestion({qa_JSON}) {
 

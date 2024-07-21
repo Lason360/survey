@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './q_1_mcq.css';
+import './Q_temps_css/q_1_mcq.css';
 
 function Q_multi({qa_JSON}) {
   const question = {

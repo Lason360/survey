@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './q_4.css';
+import './Q_temps_css/q_4.css';
 
 function Questionnaire() {
   const initialQuestions = [
@@ -22,6 +22,11 @@ function Questionnaire() {
       selectedOption: "",
     },
   ];
+  
+  const questionAnswers = {}
+  initialQuestions.forEach(question =>{
+    questionAnswers[question.id] = '';
+  });
 
   const [questions, setQuestions] = useState(initialQuestions);
 
@@ -36,8 +41,16 @@ function Questionnaire() {
   };
 
   const submitAnswers = () => {
-    const selectedOptions = questions.map((q) => ({ id: q.id, selectedOption: q.selectedOption }));
-    console.log("Submitted answers:", selectedOptions);
+    
+    const answers = {};
+    questions.forEach (question =>{
+      answers[question.text] = question.selectedOption;
+    }
+    )
+
+    // console.log(questionAnswers);
+    // const selectedOptions = questions.map((q) => ({ id: q.id, selectedOption: q.selectedOption }));
+    console.log("Submitted answers:", answers);
     // implement firebase
   };
 
