@@ -1,32 +1,7 @@
 import React, { useState } from 'react';
 import './Q_temps_css/q_4.css';
 
-function Questionnaire() {
-  const initialQuestions = [
-    {
-      id: 1,
-      text: "The user interface is intuitive and easy to navigate.",
-      options: ["Strongly Agree", "Agree", "Disagree", "Strongly Disagree"],
-      selectedOption: "",
-    },
-    {
-      id: 2,
-      text: "The website content is informative and relevant.",
-      options: ["Strongly Agree", "Agree", "Disagree", "Strongly Disagree"],
-      selectedOption: "",
-    },
-    {
-      id: 3,
-      text: "The overall design of the application is visually appealing.",
-      options: ["Strongly Agree", "Agree", "Disagree", "Strongly Disagree"],
-      selectedOption: "",
-    },
-  ];
-  
-  const questionAnswers = {}
-  initialQuestions.forEach(question =>{
-    questionAnswers[question.id] = '';
-  });
+function Questionnaire({ initialQuestions }) {
 
   const [questions, setQuestions] = useState(initialQuestions);
 
@@ -48,10 +23,7 @@ function Questionnaire() {
     }
     )
 
-    // console.log(questionAnswers);
-    // const selectedOptions = questions.map((q) => ({ id: q.id, selectedOption: q.selectedOption }));
     console.log("Submitted answers:", answers);
-    // implement firebase
   };
 
   return (
