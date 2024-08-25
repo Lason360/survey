@@ -22,6 +22,8 @@ The purpose of this project is to create a survey template that includes four co
 
 ## Completed
 - Question formats have been developed for each question type.
+- Question input JSON format and Question answer returning format is standardized.
+- Answer handling logic is applied.
 
 ## Further Development
 - Implementing an instance of answering questions.
