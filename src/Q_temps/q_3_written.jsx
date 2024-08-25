@@ -3,7 +3,7 @@ import './Q_temps_css/q_3_written.css';
 
 function WrittenQuestion({qa_JSON}) {
 
-  const question = "This is a written question";
+  const question = qa_JSON["question"];
     
   const [writtenAnswer, setWrittenAnswer] = useState('');
 
@@ -12,8 +12,8 @@ function WrittenQuestion({qa_JSON}) {
   };
 
   const submitAnswer = () => {
-    const updatedJSON = {...qa_JSON};
-    updatedJSON[question] = writtenAnswer;
+    const updatedJSON = {};
+    updatedJSON["answer"] = writtenAnswer;
     console.log(updatedJSON);
   };
 

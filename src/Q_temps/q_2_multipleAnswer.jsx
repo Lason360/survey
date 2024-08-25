@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './Q_temps_css/q_1_mcq.css';
 
-function Q_multi({qa_JSON}) {
-  const question = {
-    text: "What is the content on a multiple answered question?",
-    options: ["answer 1", "answer 2", "answer 3", "answer 4"],
-  };
+function Qmulti({qa_JSON}) {
+  // const question = {
+  //   text: "What is the content on a multiple answered question?",
+  //   options: ["answer 1", "answer 2", "answer 3", "answer 4"],
+  // };
+
+  const question = qa_JSON["question"]
+  const options = qa_JSON["options"]
 
   const initialAnswerJson = {};
-  question.options.forEach(option => {
+  options.forEach(option => {
     initialAnswerJson[option] = false;
   });
 
@@ -29,8 +32,7 @@ function Q_multi({qa_JSON}) {
       return;
     }
 
-    const updatedJson = { ...qa_JSON };
-    updatedJson[question.text] = answerJson;
+    const updatedJson = { ...answerJson };
 
     console.log("Updated JSON:", JSON.stringify(updatedJson));
     // Implement firebase logic here
@@ -38,9 +40,9 @@ function Q_multi({qa_JSON}) {
 
   return (
     <div className="mcq-container">
-      <h2>{question.text}</h2>
+      <h2>{question}</h2>
       <div id="options">
-        {question.options.map((option) => (
+        {options.map((option) => (
           <div className="option" key={option}>
             <input
               type="checkbox"
@@ -58,4 +60,4 @@ function Q_multi({qa_JSON}) {
   );
 }
 
-export default Q_multi;
+export default Qmulti;
