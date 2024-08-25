@@ -5,13 +5,20 @@ The purpose of this project is to create a survey template that includes four co
 
 ## Question Types
 1. **Single Choice MCQ**
-![Local Image](ReadMe_images/smcq.png)
+
+   <img src="ReadMe_images/smcq.png" alt="Single Choice MCQ" width="300" />
+
 2. **Multiple Choice MCQ**
-![Local Image](ReadMe_images/mmcq.png)
+
+   <img src="ReadMe_images/mmcq.png" alt="Multiple Choice MCQ" width="300" />
+
 3. **Written**
-![Local Image](ReadMe_images/written.png)
+
+   <img src="ReadMe_images/written.png" alt="Written" width="300" />
+
 4. **Likert Scale Questions**
-![Local Image](ReadMe_images/likert.png)
+
+   <img src="ReadMe_images/likert.png" alt="Likert Scale Questions" width="300" />
 
 ## Completed
 - Question formats have been developed for each question type.
